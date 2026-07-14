@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Find Skill | SkillSwap</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Set up React components
+      const OffersList = ({ offers, onMatch }) => {
+        return (
+          <ul>
+            {offers.map((offer) => (
+              <li key={offer.id}>
+                <h3>{offer.name}</h3>
+                <p>Teaches: {offer.skill_teaching}</p>
+                <p>Wants to Learn: {offer.skill_learning}</p>
+                <p>Timezone: {offer.timezone}</p>
+                <p>Availability: {offer.availability.join(", ")}</p>
+                <button onClick={() => onMatch(offer)}>Request Swap</button>
+              </li>
+            ))}
+          </ul>
+        );
+      };
+
+      const App = () => {
+        const [offers, setOffers] = React.useState([]);
+        const [filters, setFilters] = React.useState({});
+
+        React.useEffect(() => {
+          fetch("/api/offers")
+            .then((response) => response.json())
+            .then((data) => setOffers(data));
+        }, []);
+
+        const handleFilterChange = (filterName) => {
+          // Implement filter functionality
+        };
+
+        const onMatch = (offer) => {
+          // Handle match request
+          axios
+            .post("/api/match", { offer, filters })
+            .then((response) => response.json())
+            .then((data) => {
+              alert(`Email sent to ${data.requester_email}.`);
+            });
+        };
+
+        return (
+          <div>
+            {/* Filter components */}
+            <OffersList offers={offers} onMatch={onMatch} />
+          </div>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

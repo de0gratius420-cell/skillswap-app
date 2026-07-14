@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trade Skills | SkillSwap</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Trade Skills in Minutes!</h1>
+      <p>Teach what you know - Learn what you don't. Trade skills live.</p>
+      <div class="counter">x people ready to swap</div>
+      <button href="/find" class="cta-btn">I want to learn something</button>
+      <button href="/offer" class="cta-btn">I want to teach something</button>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@splide/splide@1.12.0/dist/splide.min.js"></script>
+  <script>
+    // Counter functionality
+    fetch("http://localhost:3000/counter")
+      .then((response) => response.json())
+      .then((data) => {
+        document.querySelector(".counter").textContent =
+          `x people ready to swap`;
+      });
+  </script>
+</html>
