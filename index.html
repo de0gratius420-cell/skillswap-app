@@ -4,6 +4,120 @@
     <meta charset="UTF-8" />
     <title>Trade Skills | SkillSwap</title>
     <link rel="stylesheet" href="/styles.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          #6366f1,
+          #8b5cf6,
+          #ec4899,
+
+        );
+      }
+      .login-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 40px;
+        background: white;
+        backdrop-filter: blur(20px);
+        border: 1px solid white;
+        border-radius: 25px;
+        color:white;
+        box-shadow: 0 20px 50px rgb(7, 2, 5, 0.5);
+      }
+      .login-form h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      input-box input {
+        width: 100%;
+        padding: 15px;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #c5c2c2;
+        color:azure;
+        outline:none
+      }
+      input:box label {
+        position: absolute;
+        left: 0;
+        top: 15px;
+        transition: 3s;
+
+      }
+      input-box label {
+        position: absolute;
+        left: 0;
+        top: 15px;
+        transition: 3s;
+
+      }
+
+      input-box input:focus + label,
+      input-box input:valid + label {
+        top: -10px;
+        font-size: 12px;
+      }
+
+      button{
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(
+          90deg
+          #6366f1
+          #8b5cf6
+        );
+        color: white;
+        cursor: pointer;
+        transition: 3s;
+
+      }
+      button:hover {
+        transform: scale(1.05);
+      }
+      
+      navbar {
+        display: flex;
+        max-width: 1200px;
+        transform: translateY(-50%);
+        top: 20%;
+        left: 50%;
+        position: fixed;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        border-radius: 50px;
+        backdrop-filter: blur(20px);
+        animation: anime 0.5s ease-in-out;
+        background-color: #ffffff26;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes anime {
+        from {
+          opacity: 0;
+          transform: translateY(-50%, -40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(-50%, 0);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -12,7 +126,19 @@
       <div class="counter">x people ready to swap</div>
       <button href="/find" class="cta-btn">I want to learn something</button>
       <button href="/offer" class="cta-btn">I want to teach something</button>
-    </div>
+    </div class="container">
+    <form class="login-form"">
+      <h2>welcome back</h2>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit" class="cta-btn">Login</button>
+    </form>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@splide/splide@1.12.0/dist/splide.min.js"></script>
   <script>
