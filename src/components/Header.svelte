@@ -1,7 +1,6 @@
 <script lang="ts">
     import { user, notifications, toast } from '../stores'
     import { supabase } from '../lib/supabase'
-    import { goto } from '$app/navigation'
 
     let mobileMenuOpen = false
 
@@ -9,7 +8,7 @@
         await supabase.auth.signOut()
         user.clear()
         toast.add('Logged out successfully', 'success')
-        goto('/')
+        window.location.href = '/'
     }
 
     $: unreadCount = $notifications.filter(n => !n.is_read).length
