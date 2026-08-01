@@ -2,7 +2,6 @@
     import { onMount } from 'svelte'
     import { supabase } from '../../lib/supabase'
     import { user, toast } from '../../stores'
-    import { goto } from '$app/navigation'
 
     let stats: any = null
     let topTeachers: any[] = []
@@ -389,26 +388,26 @@
                             <h2 class="card-title">Platform Configuration</h2>
                             <div class="space-y-4">
                                 <div class="form-control">
-                                    <label class="label"><span class="label-text">Platform Fee (%)</span></label>
-                                    <input type="number" class="input input-bordered" bind:value={config.platform_fee_percent} min="0" max="100" step="0.01" />
-                                    <label class="label"><span class="label-text-alt">Percentage taken from each session</span></label>
+                                    <label class="label" for="platform-fee-percent"><span class="label-text">Platform Fee (%)</span></label>
+                                    <input id="platform-fee-percent" type="number" class="input input-bordered" bind:value={config.platform_fee_percent} min="0" max="100" step="0.01" />
+                                    <label class="label" for="platform-fee-percent"><span class="label-text-alt">Percentage taken from each session</span></label>
                                 </div>
                                 <div class="form-control">
-                                    <label class="label"><span class="label-text">Credit to USD Rate</span></label>
-                                    <input type="number" class="input input-bordered" bind:value={config.credit_to_usd_rate} min="0.01" step="0.01" />
-                                    <label class="label"><span class="label-text-alt">1 credit = ${config.credit_to_usd_rate} USD</span></label>
+                                    <label class="label" for="credit-to-usd-rate"><span class="label-text">Credit to USD Rate</span></label>
+                                    <input id="credit-to-usd-rate" type="number" class="input input-bordered" bind:value={config.credit_to_usd_rate} min="0.01" step="0.01" />
+                                    <label class="label" for="credit-to-usd-rate"><span class="label-text-alt">1 credit = ${config.credit_to_usd_rate} USD</span></label>
                                 </div>
                                 <div class="form-control">
-                                    <label class="label"><span class="label-text">Min Withdrawal (credits)</span></label>
-                                    <input type="number" class="input input-bordered" bind:value={config.min_withdrawal_credits} min="1" />
+                                    <label class="label" for="min-withdrawal-credits"><span class="label-text">Min Withdrawal (credits)</span></label>
+                                    <input id="min-withdrawal-credits" type="number" class="input input-bordered" bind:value={config.min_withdrawal_credits} min="1" />
                                 </div>
                                 <div class="form-control">
-                                    <label class="label"><span class="label-text">Featured Listing Cost (credits)</span></label>
-                                    <input type="number" class="input input-bordered" bind:value={config.featured_listing_cost_credits} min="1" />
+                                    <label class="label" for="featured-listing-cost-credits"><span class="label-text">Featured Listing Cost (credits)</span></label>
+                                    <input id="featured-listing-cost-credits" type="number" class="input input-bordered" bind:value={config.featured_listing_cost_credits} min="1" />
                                 </div>
                                 <div class="form-control">
-                                    <label class="label"><span class="label-text">Dispute Window (hours)</span></label>
-                                    <input type="number" class="input input-bordered" bind:value={config.dispute_window_hours} min="1" />
+                                    <label class="label" for="dispute-window-hours"><span class="label-text">Dispute Window (hours)</span></label>
+                                    <input id="dispute-window-hours" type="number" class="input input-bordered" bind:value={config.dispute_window_hours} min="1" />
                                 </div>
                                 <button class="btn btn-primary" on:click={updateConfig}>Save Changes</button>
                             </div>

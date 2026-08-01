@@ -1,8 +1,8 @@
 <script lang="ts">
+    import { goto } from '$app/navigation'
     import { onMount } from 'svelte'
     import { supabase } from '../../lib/supabase'
     import { user, toast } from '../../stores'
-    import { goto } from '$app/navigation'
 
     let packages: any[] = []
     let loading = true
