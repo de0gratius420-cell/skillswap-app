@@ -1,11 +1,10 @@
 <script lang="ts">
     import type { Profile } from '../types'
-    import { goto } from '$app/navigation'
 
     export let teacher: Profile
 
     function viewProfile() {
-        goto(`/profile/${teacher.username}`)
+        window.location.href = `/profile/${teacher.username}`
     }
 </script>
 
