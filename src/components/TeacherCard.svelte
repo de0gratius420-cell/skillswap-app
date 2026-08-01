@@ -6,9 +6,26 @@
     function viewProfile() {
         window.location.href = `/profile/${teacher.username}`
     }
+
+    function handleCardKeydown(event: KeyboardEvent) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            viewProfile()
+        }
+    }
+
+    function requestSession() {
+        window.location.href = `/request/${teacher.id}`
+    }
 </script>
 
-<div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer" on:click={viewProfile}>
+<article
+    class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
+    role="button"
+    tabindex="0"
+    on:click={viewProfile}
+    on:keydown={handleCardKeydown}
+>
     <div class="card-body">
         <div class="flex items-start gap-4">
             <div class="avatar">
@@ -47,9 +64,9 @@
         </div>
 
         <div class="card-actions justify-end mt-4">
-            <button class="btn btn-primary btn-sm" on:click|stopPropagation={() => goto(`/request/${teacher.id}`)}>
+            <button type="button" class="btn btn-primary btn-sm" on:click|stopPropagation={requestSession}>
                 Request Session
             </button>
         </div>
     </div>
-</div>
+</article>
