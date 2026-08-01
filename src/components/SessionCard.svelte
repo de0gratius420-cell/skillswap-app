@@ -2,7 +2,10 @@
     import type { Session } from '../types'
     import { updateSessionStatus, supabase } from '../lib/supabase'
     import { toast } from '../stores'
-    import { goto } from '$app/navigation'
+
+    function goto(path: string) {
+        window.location.assign(path)
+    }
 
     export let session: Session
     export let isTeacher: boolean
