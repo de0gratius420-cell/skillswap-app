@@ -19,10 +19,11 @@
     }
 </script>
 
-<article
+<div
     class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
     role="button"
     tabindex="0"
+    aria-label={`View profile of ${teacher.display_name || teacher.username}`}
     on:click={viewProfile}
     on:keydown={handleCardKeydown}
 >
@@ -69,4 +70,4 @@
             </button>
         </div>
     </div>
-</article>
+</div>
